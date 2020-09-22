@@ -15,4 +15,4 @@ steps:
     targetType: 'inline'
     script: |
       Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools 
-      Install-ADDSForest -DomainName "test.beryju.org”
+      Install-ADDSForest -DomainName "test.beryju.org” -InstallDNS -Force -SafeModeAdministratorPassword RandomPassword1! 
