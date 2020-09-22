@@ -14,5 +14,6 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      $pass = "SomePassword1!" | ConvertTo-SecureString
       Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools 
-      Install-ADDSForest -DomainName "test.beryju.org” -InstallDNS -Force -SafeModeAdministratorPassword RandomPassword1! 
+      Install-ADDSForest -DomainName "test.beryju.org” -InstallDNS -Force -SafeModeAdministratorPassword $pass 
