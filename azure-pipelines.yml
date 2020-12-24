@@ -4,9 +4,20 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+variables:
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/') }}:
+    branchName: ${{ replace(variables['Build.SourceBranchName'], 'refs/heads/', '') }}
+  ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
+    branchName: $(System.PullRequest.SourceBranch)
+
 steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
     script: |
+      echo "direct branch name"
       echo ${{ replace(variables['Build.SourceBranchName'], 'refs/heads/', '') }}
+      echo "pr branch name"
+      echo $(System.PullRequest.SourceBranch)
+      echo "custom"
+      echo $(branchName)
