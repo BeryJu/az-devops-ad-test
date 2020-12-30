@@ -8,7 +8,7 @@ variables:
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/heads/') }}:
     branchName: ${{ replace(variables['Build.SourceBranchName'], 'refs/heads/', '') }}
   ${{ if startsWith(variables['Build.SourceBranch'], 'refs/pull/') }}:
-    branchName: $(System.PullRequest.SourceBranch)
+    branchName: ${{ replace(variables['System.PullRequest.SourceBranch'], '/', '-') }}
 
 steps:
 - task: Bash@3
