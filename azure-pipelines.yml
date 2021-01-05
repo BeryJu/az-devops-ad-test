@@ -23,5 +23,4 @@ steps:
       echo "pr branch name"
       echo $(System.PullRequest.SourceBranch)
       echo "custom"
-      echo $(branchName)
-      echo "custom replaced"
+      echo $(variables['branchName'])
