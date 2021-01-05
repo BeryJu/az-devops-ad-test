@@ -15,6 +15,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      set -x
       echo "SourceBranch"
       echo $(Build.SourceBranch)
       echo "direct branch name"
