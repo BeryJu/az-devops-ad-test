@@ -18,10 +18,12 @@ steps:
       set -x
       echo "------- SourceBranch"
       echo $(Build.SourceBranch)
-      echo "------- direct branch name"
+      echo "------- SourceBranch short"
       echo ${{ replace(variables['Build.SourceBranchName'], 'refs/heads/', '') }}
-      echo "------- pr branch name"
+      echo "------- PullRequest SourceBranch"
       echo $(System.PullRequest.SourceBranch)
+      echo "------- PullRequest SourceBranch short"
+      echo ${{ replace(variables['System.PullRequest.SourceBranch'], '/', '-') }}
       echo "------- custom"
       echo ${{variables.branchName}}
       echo "------- env"
