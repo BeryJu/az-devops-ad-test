@@ -22,4 +22,4 @@ steps:
       echo "custom"
       echo $(branchName)
       echo "custom replaced"
-      echo ${{ replace(variables['branchName'], '/', '-') }}
+      echo $[replace(variables['branchName'], '/', '-')]
