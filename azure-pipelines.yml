@@ -16,11 +16,13 @@ steps:
     targetType: 'inline'
     script: |
       set -x
-      echo "SourceBranch"
+      echo "------- SourceBranch"
       echo $(Build.SourceBranch)
-      echo "direct branch name"
+      echo "------- direct branch name"
       echo ${{ replace(variables['Build.SourceBranchName'], 'refs/heads/', '') }}
-      echo "pr branch name"
+      echo "------- pr branch name"
       echo $(System.PullRequest.SourceBranch)
-      echo "custom"
-      echo $(variables['branchName'])
+      echo "------- custom"
+      echo ${{variables.branchName}}
+      echo "------- env"
+      env
