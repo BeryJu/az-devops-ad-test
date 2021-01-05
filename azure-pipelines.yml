@@ -23,7 +23,7 @@ steps:
       echo "------- PullRequest SourceBranch"
       echo $(System.PullRequest.SourceBranch)
       echo "------- PullRequest SourceBranch short"
-      echo ${{ replace(variables['System.PullRequest.SourceBranch'], '/', 'a') }}
+      echo ${{ replace(variables['System.PullRequest.SourceBranch'], 'test', 'ssss') }}
       echo "------- PullRequest SourceBranch custom"
       echo $(echo "$(System.PullRequest.SourceBranch)" | sed "s/\//-/g")
       echo "------- custom"
